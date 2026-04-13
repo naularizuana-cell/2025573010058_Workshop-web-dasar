@@ -1,0 +1,67 @@
+:root {
+  --main-color: #007bff;
+  --font-main: Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: var(--main-color);
+  color: white;
+}
+
+.nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.subscribe {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 20px;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* CONTENT */
+.container {
+  display: flex;
+  padding: 20px;
+}
+
+.content {
+  width: 70%;
+}
+
+.sidebar {
+  width: 30%;
+  padding-left: 20px;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background: #333;
+  color: white;
+  padding: 20px;
+}

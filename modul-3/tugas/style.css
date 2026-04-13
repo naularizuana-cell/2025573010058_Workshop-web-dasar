@@ -1,0 +1,152 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body {
+  background: #f8f5f6;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #800000, #a52a2a);
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+/* NAVBAR */
+nav {
+  background: #5a0f0f;
+  text-align: center;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffb3b3;
+}
+
+/* MAIN */
+main {
+  width: 85%;
+  margin: 20px auto;
+}
+
+/* SECTION */
+section {
+  background: white;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(128, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+/* JUDUL SECTION */
+section h2 {
+  margin-bottom: 15px;
+  color: #800000;
+}
+
+/* GAMBAR */
+section img {
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 15px;
+  border: 3px solid #800000;
+}
+
+/* LIST */
+ul,
+ol {
+  margin-left: 20px;
+}
+
+/* FORM */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #800000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(128, 0, 0, 0.4);
+}
+
+/* BUTTON */
+button {
+  background: #800000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a52a2a;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #5a0f0f;
+  color: white;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #ffb3b3;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 10px;
+  }
+}
