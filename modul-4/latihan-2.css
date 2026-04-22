@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* ================= ACCORDION ================= */
+details {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+details:focus-within {
+  border-color: crimson;
+  box-shadow: 0 0 10px crimson;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ================= IMAGE HOVER ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.img-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  display: block;
+}
+
+/* overlay */
+.img-box::before {
+  content: var(--title);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* saat hover */
+.img-box:hover::before {
+  opacity: 1;
+}
+
+/* ================= PROGRESS BAR ================= */
+.progress {
+  width: 100%;
+  height: 20px;
+  background: #eee;
+  margin: 10px 0;
+  position: relative;
+}
+
+/* fill */
+.progress::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: var(--progress);
+  background: crimson;
+  transition: 0.5s;
+}

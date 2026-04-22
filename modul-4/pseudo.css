@@ -1,0 +1,57 @@
+*, *::before, *::after {   
+    box-sizing: border-box;   
+    margin: 0; padding: 0; } 
+    body {
+    font-family: Arial;   
+    padding: 1.5rem; 
+} 
+h2 {   
+    margin: 1.5rem 0 0.75rem;  
+    color: #2C3E50; 
+} 
+/* Tabel zebra stripe */ 
+table {   width: 100%;   
+    border-collapse: collapse; 
+}
+ td {   padding: 0.6rem 1rem;   
+    border: 1px solid #ddd; 
+} 
+/* Baris genap diberi warna */ 
+tr:nth-child(even) td {   
+    background: #EBF5FB; 
+} 
+/* Hover baris */ 
+tr:hover td {   
+    background: #D6EAF8; 
+}
+   /* List tanpa border di item terakhir */ 
+   .list-bersih {   
+    list-style: none;   
+    border: 1px solid #ddd;   
+    border-radius: 6px;   o
+    verflow: hidden; 
+} 
+/* :not menghindari border di item terakhir */ 
+.list-bersih li:not(:last-child) {   
+    border-bottom: 1px solid #ddd; 
+} 
+/* Grid kartu dengan :nth-child */ 
+.grid-kartu {   
+    display: grid;   
+    grid-template-columns:
+    repeat(3, 1fr);   
+    gap: 0.75rem;   
+    margin-top: 0.5rem; 
+} 
+.grid-kartu div {   
+    padding: 1.5rem;   
+    background: #F2F3F4;   
+    border-radius: 6px;   
+    text-align: center; 
+} 
+/* Kartu ke-3 di-highlight */ 
+.grid-kartu div:nth-child(3n) {   
+    background: #2E86C1;   
+    color: white;   
+    font-weight: bold; 
+}
