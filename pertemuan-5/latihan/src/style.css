@@ -1,0 +1,253 @@
+/* =====================
+   CSS VARIABLES (LIGHT)
+===================== */
+:root {
+  --primary: #ff6b35;
+  --bg: #f9fafb;
+  --text: #1f2937;
+  --card: #ffffff;
+  --gray: #6b7280;
+
+  --space: 16px;
+  --radius: 12px;
+}
+
+/* =====================
+   DARK MODE AUTO
+===================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --text: #f3f4f6;
+    --card: #1f2937;
+    --gray: #9ca3af;
+  }
+}
+
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================
+   GLOBAL
+===================== */
+body {
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* =====================
+   NAVBAR (FLEXBOX)
+===================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  padding: var(--space);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* =====================
+   HERO (GRID)
+===================== */
+.hero {
+  padding: 60px 0;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.hero-text h2 {
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  color: var(--gray);
+}
+
+.hero img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* =====================
+   BADGE ANIMATION
+===================== */
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =====================
+   FEATURES (GRID)
+===================== */
+.features {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  transition: 0.3s;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* PSEUDO ELEMENT (WAJIB) */
+.card::before {
+  content: "⭐";
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* =====================
+   TESTIMONIAL (GRID)
+===================== */
+.grid-testi {
+  display: grid;
+  gap: 20px;
+  padding: 60px 0;
+}
+
+.testi {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+/* =====================
+   FOOTER (GRID)
+===================== */
+.footer {
+  background: var(--card);
+  padding: 40px 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* =====================
+   TABLET ≥768px
+===================== */
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-testi {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =====================
+   DESKTOP ≥1024px
+===================== */
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+
+  .hero-text h2 {
+    font-size: 36px;
+  }
+}
