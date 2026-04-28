@@ -1,18 +1,20 @@
-// main.js
 import "./style.css";
 
-// Dark mode toggle
+// DARK MODE TOGGLE
 const btn = document.getElementById("toggleDark");
-const html = document.documentElement;
 
-// Cek preferensi tersimpan
-if (localStorage.getItem("theme") === "dark") {
-  html.classList.add("dark");
-  btn.textContent = "light";
+if (btn) {
+  btn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+
+    localStorage.setItem(
+      "theme",
+      document.documentElement.classList.contains("dark") ? "dark" : "light",
+    );
+  });
 }
-btn.addEventListener("click", () => {
-  html.classList.toggle("dark");
-  const isDark = html.classList.contains("dark");
-  btn.textContent = isDark ? "light" : "dark";
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-});
+
+// LOAD MODE
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+}

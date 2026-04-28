@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodieHub</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+    <!-- Navbar -->
+    <header
+      class="flex justify-between items-center px-6 py-3 bg-orange-500 text-white shadow"
+    >
+      <h1 class="text-lg font-semibold">🍽️ FoodieHub</h1>
+      <button onclick="toggleDark()" class="text-sm">🌙</button>
+    </header>
+
+    <!-- Hero -->
+    <section class="text-center py-12">
+      <h2 class="text-2xl font-semibold mb-2">Fresh & Tasty Food 🍽️</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+        Order your favorite meals anytime
+      </p>
+      <a
+        href="#menu"
+        class="inline-block bg-orange-500 text-white px-5 py-2 rounded-md text-sm hover:bg-orange-600 transition"
+      >
+        Order Now
+      </a>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="text-center pb-10">
+      <h2 class="text-xl font-semibold mb-5">Our Menu</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 px-8 max-w-5xl mx-auto">
+        <!-- Sushi -->
+        <div class="bg-white dark:bg-gray-800 shadow p-3 rounded-lg">
+          <img
+            src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=800&auto=format&fit=crop"
+            class="mx-auto mb-2 w-full h-32 object-cover rounded"
+          />
+          <h3 class="text-sm font-semibold">Sushi 🍣</h3>
+          <p class="text-orange-500 text-sm">Rp 30.000</p>
+        </div>
+
+        <!-- Fried Rice -->
+        <div class="bg-white dark:bg-gray-800 shadow p-3 rounded-lg">
+          <img
+            src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800&auto=format&fit=crop"
+            class="mx-auto mb-2 w-full h-32 object-cover rounded brightness-110"
+          />
+          <h3 class="text-sm font-semibold">Fried Rice 🍛</h3>
+          <p class="text-orange-500 text-sm">Rp 18.000</p>
+        </div>
+
+        <!-- Donut -->
+        <div class="bg-white dark:bg-gray-800 shadow p-3 rounded-lg">
+          <img
+            src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop"
+            class="mx-auto mb-2 w-full h-32 object-cover rounded"
+          />
+          <h3 class="text-sm font-semibold">Donut 🍩</h3>
+          <p class="text-orange-500 text-sm">Rp 12.000</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleDark() {
+        document.documentElement.classList.toggle("dark");
+      }
+    </script>
+
+    <!-- HAPUS kalau tidak pakai Vite -->
+    <!-- <script type="module" src="/src/main.js"></script> -->
+  </body>
+</html>
