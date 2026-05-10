@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Imut</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ffd6e7, #ffe7c7);
+      }
+
+      .calculator {
+        width: 320px;
+        background: white;
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .title {
+        text-align: center;
+        color: #ff4f81;
+        margin-bottom: 20px;
+        font-size: 28px;
+      }
+
+      #display {
+        width: 100%;
+        height: 70px;
+        border: none;
+        outline: none;
+        border-radius: 15px;
+        background: #fff0f5;
+        text-align: right;
+        padding: 15px;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #444;
+        font-weight: bold;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      button {
+        height: 65px;
+        border: none;
+        border-radius: 18px;
+        font-size: 22px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-weight: bold;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+      }
+
+      .number {
+        background: #ffe4ee;
+        color: #ff4f81;
+      }
+
+      .operator {
+        background: #ffd166;
+        color: white;
+      }
+
+      .equal {
+        background: #7bd389;
+        color: white;
+      }
+
+      .clear {
+        background: #ff6b6b;
+        color: white;
+        grid-column: span 2;
+      }
+
+      .zero {
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <h1 class="title">🌸 Kalkulator Imut 🌸</h1>
+
+      <input type="text" id="display" disabled />
+
+      <div class="buttons" id="buttons">
+        <button class="number" data-value="7">7</button>
+        <button class="number" data-value="8">8</button>
+        <button class="number" data-value="9">9</button>
+        <button class="operator" data-value="/">÷</button>
+
+        <button class="number" data-value="4">4</button>
+        <button class="number" data-value="5">5</button>
+        <button class="number" data-value="6">6</button>
+        <button class="operator" data-value="*">×</button>
+
+        <button class="number" data-value="1">1</button>
+        <button class="number" data-value="2">2</button>
+        <button class="number" data-value="3">3</button>
+        <button class="operator" data-value="-">−</button>
+
+        <button class="number zero" data-value="0">0</button>
+        <button class="number" data-value=".">.</button>
+        <button class="operator" data-value="+">+</button>
+
+        <button class="clear" data-value="C">Clear</button>
+
+        <button class="equal" data-value="=">=</button>
+      </div>
+    </div>
+
+    <script src="latihan-1.js"></script>
+  </body>
+</html>

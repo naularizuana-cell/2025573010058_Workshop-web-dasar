@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Shop Imut</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(to right, #ffd6e7, #ffeccf);
+        min-height: 100vh;
+        padding: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #ff4f81;
+        font-size: 40px;
+      }
+
+      .container {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      /* PRODUK */
+      .products {
+        flex: 3;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 15px;
+        text-align: center;
+      }
+
+      .card h3 {
+        color: #ff4f81;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        color: #444;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        background: #ff7aa2;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .btn:hover {
+        background: #ff4f81;
+      }
+
+      /* CART */
+      .cart {
+        flex: 1;
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        min-width: 280px;
+        height: fit-content;
+        position: sticky;
+        top: 20px;
+      }
+
+      .cart h2 {
+        color: #ff4f81;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .cart-item {
+        background: #fff0f5;
+        padding: 12px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+      }
+
+      .cart-item h4 {
+        color: #ff4f81;
+        margin-bottom: 5px;
+      }
+
+      .cart-buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .small-btn {
+        border: none;
+        padding: 6px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+      }
+
+      .plus {
+        background: #4caf50;
+      }
+
+      .minus {
+        background: #ff9800;
+      }
+
+      .delete {
+        background: #f44336;
+      }
+
+      .total {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        color: #444;
+      }
+
+      .checkout {
+        width: 100%;
+        margin-top: 20px;
+        background: #ff4f81;
+        padding: 12px;
+        border: none;
+        color: white;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .checkout:hover {
+        background: #ff2f6d;
+      }
+
+      .empty {
+        text-align: center;
+        color: gray;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🛍️ Mini Shop Imut</h1>
+
+    <div class="container">
+      <!-- PRODUK -->
+      <div class="products" id="product-list"></div>
+
+      <!-- CART -->
+      <div class="cart">
+        <h2>🛒 Keranjang</h2>
+
+        <div id="cart-items">
+          <p class="empty">Keranjang masih kosong</p>
+        </div>
+
+        <div class="total" id="total">Total: Rp 0</div>
+
+        <button class="checkout" onclick="checkout()">Checkout ✨</button>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Strawberry Cake",
+          price: 35000,
+          image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e",
+        },
+        {
+          id: 2,
+          name: "Pink Donut",
+          price: 18000,
+          image: "https://images.unsplash.com/photo-1551024601-bec78aea704b",
+        },
+        {
+          id: 3,
+          name: "Ice Cream",
+          price: 25000,
+          image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        },
+        {
+          id: 4,
+          name: "Milkshake",
+          price: 22000,
+          image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc",
+        },
+        {
+          id: 5,
+          name: "Cupcake",
+          price: 15000,
+          image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d",
+        },
+      ];
+
+      const cart = [];
+
+      const productList = document.getElementById("product-list");
+      const cartItems = document.getElementById("cart-items");
+      const totalText = document.getElementById("total");
+
+      // TAMPILKAN PRODUK
+      products.forEach((product) => {
+        productList.innerHTML += `
+        <div class="card">
+
+          <img src="${product.image}" alt="${product.name}">
+
+          <div class="card-content">
+
+            <h3>${product.name}</h3>
+
+            <p class="price">
+              Rp ${product.price.toLocaleString()}
+            </p>
+
+            <button class="btn" onclick="addToCart(${product.id})">
+              Tambah ke Keranjang
+            </button>
+
+          </div>
+        </div>
+      `;
+      });
+
+      // TAMBAH KE CART
+      function addToCart(id) {
+        const product = products.find((p) => p.id === id);
+
+        const item = cart.find((p) => p.id === id);
+
+        if (item) {
+          item.qty++;
+        } else {
+          cart.push({ ...product, qty: 1 });
+        }
+
+        renderCart();
+      }
+
+      // RENDER CART
+      function renderCart() {
+        cartItems.innerHTML = "";
+
+        if (cart.length === 0) {
+          cartItems.innerHTML = `
+          <p class="empty">Keranjang masih kosong</p>
+        `;
+        }
+
+        let total = 0;
+
+        cart.forEach((item) => {
+          total += item.price * item.qty;
+
+          cartItems.innerHTML += `
+          <div class="cart-item">
+
+            <h4>${item.name}</h4>
+
+            <p>
+              ${item.qty} x Rp ${item.price.toLocaleString()}
+            </p>
+
+            <div class="cart-buttons">
+
+              <button class="small-btn plus"
+                onclick="increase(${item.id})">
+                +
+              </button>
+
+              <button class="small-btn minus"
+                onclick="decrease(${item.id})">
+                -
+              </button>
+
+              <button class="small-btn delete"
+                onclick="removeItem(${item.id})">
+                Hapus
+              </button>
+
+            </div>
+
+          </div>
+        `;
+        });
+
+        totalText.innerHTML = `Total: Rp ${total.toLocaleString()}`;
+      }
+
+      // TAMBAH JUMLAH
+      function increase(id) {
+        const item = cart.find((p) => p.id === id);
+        item.qty++;
+        renderCart();
+      }
+
+      // KURANG JUMLAH
+      function decrease(id) {
+        const item = cart.find((p) => p.id === id);
+
+        item.qty--;
+
+        if (item.qty <= 0) {
+          removeItem(id);
+        }
+
+        renderCart();
+      }
+
+      // HAPUS ITEM
+      function removeItem(id) {
+        const index = cart.findIndex((p) => p.id === id);
+
+        cart.splice(index, 1);
+
+        renderCart();
+      }
+
+      // CHECKOUT
+      function checkout() {
+        if (cart.length === 0) {
+          alert("Keranjang masih kosong 🥺");
+          return;
+        }
+
+        let message = "✨ Ringkasan Belanja ✨\n\n";
+
+        cart.forEach((item) => {
+          message += `${item.name} (${item.qty})\n`;
+        });
+
+        message += `\n${totalText.innerText}`;
+
+        alert(message);
+      }
+    </script>
+  </body>
+</html>

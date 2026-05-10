@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ffd6e7, #ffe7c7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ff4f81;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #fff0f5;
+  outline: none;
+}
+
+select {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #fff0f5;
+}
+
+#addBtn {
+  background: #ff4f81;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #ffe4ee;
+}
+
+.filter-btn.active {
+  background: #ff4f81;
+  color: white;
+}
+
+#counter {
+  margin-bottom: 15px;
+  color: #555;
+  font-weight: bold;
+}
+
+#taskList {
+  list-style: none;
+}
+
+.task {
+  background: #fff0f5;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.priority {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: white;
+}
+
+.low {
+  background: #4caf50;
+}
+
+.medium {
+  background: #ff9800;
+}
+
+.high {
+  background: #f44336;
+}
+
+.delete-btn {
+  background: #ff6b6b;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#deleteCompleted {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #ff4f81;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-input {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+}
